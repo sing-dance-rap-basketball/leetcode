@@ -20,28 +20,52 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
-public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        int len = 0;
-        ListNode* nextNode = head;
-        
-        while (nextNode != NULL) {
-            nextNode = nextNode->next;
-            ++len;
-        }
-        
-        if (n == len) {
-            head = head->next;
-            return head;
-        }
-        else {
-            nextNode = head;
-            for (int i = 0; i < len - n - 1; ++i) {
-                nextNode = nextNode->next;
-            }
-            nextNode->next = nextNode->next->next;
-            return head;
-        }
+
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+    int len = 0;
+    ListNode* nextNode = head;
+    
+    while (nextNode != NULL) {
+        nextNode = nextNode->next;
+        ++len;
     }
-};
+    
+    if (n == len) {
+        head = head->next;
+        return head;
+    }
+    else {
+        nextNode = head;
+        for (int i = 0; i < len - n - 1; ++i) {
+            nextNode = nextNode->next;
+        }
+        nextNode->next = nextNode->next->next;
+        return head;
+    }
+}
+
+/**
+ * 提交结果：
+ * Runtime: 4 ms, faster than 92.10% of C++ online submissions for Remove Nth Node From End of List.
+ * Memory Usage: 8.4 MB, less than 87.12% of C++ online submissions for Remove Nth Node From End of List.
+ */
+
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* firstNode = head;
+        ListNode* secondNode = head;
+        
+        for (int i = 0; i <= n; ++i) {
+            if (secondNode == nullptr) {
+                return head->next;
+            }
+            secondNode = secondNode->next;
+        }
+        
+        while (secondNode != nullptr) {
+            firstNode = firstNode->next;
+            secondNode = secondNode->next;
+        }
+        firstNode->next = firstNode->next->next;
+        
+        return head;
+    }
