@@ -21,3 +21,4 @@ public:
         return (x==sum) || (x == sum/10);
     }
 };
+
