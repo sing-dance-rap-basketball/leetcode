@@ -30,3 +30,17 @@
     思路和#24(Swap Nodes in Pairs)类似，用递归的方法写，比较简单。
 
 - 26\. Rotate List
+- 83\. Remove Duplicates from Sorted List
+- 82\. Remove Duplicates from Sorted List II
+- 86\. Partition List
+- 206\. Reverse Linked List
+  
+  这题可以写循环版本和递归版本，递归版本有点意思。我写的两个版本的代码思路都没问题，就是代码看着臃肿，不改了。
+
+- 92\. Reverse Linked List II
+  
+  官网给的解答很详细，反转链表应该也算一种典型的操作，这题和#206有必要熟练掌握。这题的递归版本也有点意思。
+
+- 109\. Convert Sorted List to Binary Search Tree
+  
+  爆栈和溢出折腾了我好久，本来打算多想几个解法，现在不想做这道题了，日后再说。
