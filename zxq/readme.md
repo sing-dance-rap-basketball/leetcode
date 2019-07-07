@@ -44,3 +44,12 @@
 - 109\. Convert Sorted List to Binary Search Tree
   
   爆栈和溢出折腾了我好久，本来打算多想几个解法，现在不想做这道题了，日后再说。
+
+- 138\. Copy List with Random Pointer
+  
+  初次听说deep copy，这题也涉及了hash table，简单来说就是一一对应上就好了，用unordered_map解决。
+
+- 141\. Linked List Cycle
+- 142\. Linked List Cycle II
+  
+  #141用了双指针的方法，不必多言。#142用hash table的话，思路很简单，但是空间开销大；通过简单的数学推导，可以得出一种利用双指针的方法，空间开销很小，比较有意思。
