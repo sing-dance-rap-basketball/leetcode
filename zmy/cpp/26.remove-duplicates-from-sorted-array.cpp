@@ -10,10 +10,10 @@ public:
         int index;
         // int n = nums.size();
         index = !nums.empty();
-        for(int i:nums) {
+        for(int i:nums) 
             if(i != nums[index - 1])
                 nums[index++] = i;
-        }
+        
         // for(int i=0; i < n; i++) {
         //     while(i+1 < n && nums[i] == nums[i+1]) {
         //         i++;
