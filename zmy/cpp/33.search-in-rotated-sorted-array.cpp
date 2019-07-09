@@ -3,6 +3,7 @@
  *
  * [33] Search in Rotated Sorted Array
  */
+// this needs some magic
 class Solution {
 public:
     int search(vector<int>& nums, int target) {

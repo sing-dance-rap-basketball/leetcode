@@ -4,6 +4,8 @@
  * [32] Longest Valid Parentheses
  */
 // 这里是玄学...
+// 还是stack适合我..
+// 感觉DP不太适合面试的时候写...毕竟想不出来转换方程emmm
 #define MAX(m, n) ((m)>(n))?(m):(n)
 class Solution {
 public:
