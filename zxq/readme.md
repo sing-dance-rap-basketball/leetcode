@@ -33,10 +33,6 @@
 - 83\. Remove Duplicates from Sorted List
 - 82\. Remove Duplicates from Sorted List II
 - 86\. Partition List
-- 206\. Reverse Linked List
-  
-  这题可以写循环版本和递归版本，递归版本有点意思。我写的两个版本的代码思路都没问题，就是代码看着臃肿，不改了。
-
 - 92\. Reverse Linked List II
   
   官网给的解答很详细，反转链表应该也算一种典型的操作，这题和#206有必要熟练掌握。这题的递归版本也有点意思。
@@ -53,3 +49,28 @@
 - 142\. Linked List Cycle II
   
   #141用了双指针的方法，不必多言。#142用hash table的话，思路很简单，但是空间开销大；通过简单的数学推导，可以得出一种利用双指针的方法，空间开销很小，比较有意思。
+
+- 143\. Reorder List
+- 147\. Insertion Sort List
+- 148\. Sort List
+  
+  复习了一遍排序算法：冒泡排序，快排，简单插入排序，希尔排序，简单选择排序，堆排序，二路/多路归并排序；计数排序，桶排序，基数排序。
+
+- 160\. Intersection of Two Linked Lists
+  
+  还没做。
+
+- 203\. Remove Linked List Elements
+- 206\. Reverse Linked List
+  
+  这题可以写循环版本和递归版本，递归版本有点意思。我写的两个版本的代码思路都没问题，就是代码看着臃肿，不改了。
+
+- 234\. Palindrome Linked List
+  
+  还没做。
+
+- 237\. Delete Node in a Linked List
+- 328\. Odd Even Linked List
+- 445\. Add Two Numbers II
+  
+  有点意思。有待优化。
