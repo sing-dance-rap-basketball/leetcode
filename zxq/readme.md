@@ -11,7 +11,7 @@
 虽然是hard，看着不难，以为一小时搞定，结果搞了三个小时，回过头一看其实很简单。（我摔）
 
 ## Linked List
-先刷"Linked List"这个Tag下面的题目。
+先刷`Linked List`这个Tag下面的题目。
 
 - 2\. Add Two Numbers
 - 19\. Remove Nth Node From End of List
@@ -90,5 +90,12 @@
 
 - 838\. Push Dominoes
 - 850\. Rectangle Area II
+  
+  有点意思。
+
 - 908\. Smallest Range I
 - 1072\. Flip Columns For Maximum Number of Equal Rows
+  
+  我用了给行分类的方法，中规中矩。跑了好多次，每次都只能快过百分之三十多的人，每次空间占用都击败了100%，看来这题应该有更好的思路。
+
+`Linked List`刷完。
