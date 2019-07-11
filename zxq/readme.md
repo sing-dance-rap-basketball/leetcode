@@ -60,7 +60,9 @@
 
 - 160\. Intersection of Two Linked Lists
   
-  还没做。
+  用了最蠢的方法，先把程序跑通，不考虑怎么做到O(1)的空间。我维护了一个关于第一个链表的std::set，然后遍历第二个链表并同时查找，理论上速度应该是O(nlogn)，运行速度很差；然后我把std::set改成了std::unordered_map，理论上时间复杂度是O(n)，然并卵，实际运行速度和前一种差不多。
+
+  有待改进。
 
 - 203\. Remove Linked List Elements
 - 206\. Reverse Linked List
@@ -80,4 +82,13 @@
 - 725\. Split Linked List in Parts
 - 766\. Toeplitz Matrix
   
-  原题很简单，但是如果内存有限，就没那么简单了，还没有考虑这个问题。
+  原题很简单，但是如果内存有限，就没那么简单了，还没有深入考虑。
+
+- 835\. Image Overlap
+  
+  题目很简单，和卷积操作有点像，我的解法打败了77%，有时间研究一下怎么能更快。
+
+- 838\. Push Dominoes
+- 850\. Rectangle Area II
+- 908\. Smallest Range I
+- 1072\. Flip Columns For Maximum Number of Equal Rows
