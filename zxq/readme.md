@@ -6,7 +6,7 @@
 - Approach 3: Sliding Window Optimized
 
 ## 992. Subarrays with K Different Integers
-做完#3，就去做类似的#992，大概还是双指针，或者说sliding window的思路。
+做完#3，就去做类似的#992，大概还是双指针，或者说`sliding window`的思路。
 
 虽然是hard，看着不难，以为一小时搞定，结果搞了三个小时，回过头一看其实很简单。（我摔）
 
@@ -18,11 +18,11 @@
 - 21\. Merge Two Sorted Lists
 - 23\. Merge k Sorted Lists (⭐)
     
-    本题前置题目是#21(Merge Two Sorted Lists)，做完#21再做这个并不难，第一时间想的是给多个链表的head排个序，后面不断更新这个排序。
+    本题前置题目是#21(Merge Two Sorted Lists)，做完#21再做这个并不难，第一时间想的是给多个链表的`head`排个序，后面不断更新这个排序。
 
     更新排序过程中我用的是从头到尾搜索，用二分查找应该会更快一些。最后的结果确实很慢，不过空间利用率还可以，有时间优化一下代码。
 
-    前后大概写了两个小时，代码很快就写好了，主要在debug，由于leetcode测试时候的输入包含各种各样的空链表，一直造成Runtime Error，RLG。
+    前后大概写了两个小时，代码很快就写好了，主要在debug，由于leetcode测试时候的输入包含各种各样的空链表，一直造成`Runtime Error`，RLG。
 
 - 24\. Swap Nodes in Pairs
 - 25\. Reverse Nodes in k-Group
@@ -43,12 +43,12 @@
 
 - 138\. Copy List with Random Pointer
   
-  初次听说deep copy，这题也涉及了hash table，简单来说就是一一对应上就好了，用unordered_map解决。
+  初次听说`deep copy`，这题也涉及了`hash table`，简单来说就是一一对应上就好了，用`std::unordered_map`解决。
 
 - 141\. Linked List Cycle
 - 142\. Linked List Cycle II
   
-  #141用了双指针的方法，不必多言。#142用hash table的话，思路很简单，但是空间开销大；通过简单的数学推导，可以得出一种利用双指针的方法，空间开销很小，比较有意思。
+  #141用了双指针的方法，不必多言。#142用`hash table`的话，思路很简单，但是空间开销大；通过简单的数学推导，可以得出一种利用双指针的方法，空间开销很小，比较有意思。
 
 - 143\. Reorder List
 - 147\. Insertion Sort List
@@ -58,9 +58,11 @@
 
   这题我用了二路归并排序，但是感觉还是不够快，空间占用也不够小，有待优化。
 
+  花点时间优化了一下，优化方法是把每次`merge`时候声明的`dummy`和游标指针放到了类内，而不是函数内，然后时间和空间占用都进步了一大截。
+
 - 160\. Intersection of Two Linked Lists
   
-  用了哈希表的想法，先把程序跑通，不考虑怎么做到O(1)的空间。我维护了一个关于第一个链表的std::set，然后遍历第二个链表并同时查找，理论上速度应该是O(m+nlogm)，运行速度很差；然后我把std::set改成了std::unordered_map，理论上时间复杂度是O(m+n)，实际表现一般般。
+  用了哈希表的想法，先把程序跑通，不考虑怎么做到O(1)的空间。我维护了一个关于第一个链表的`std::set`，然后遍历第二个链表并同时查找，理论上速度应该是O(m+nlogm)，运行速度很差；然后我把`std::set`改成了`std::unordered_map`，理论上时间复杂度是O(m+n)，实际表现一般般。
 
   第二种思路是双指针，先把两个链表都遍历一遍记录他们的长度，然后用双指针同时遍历两个链表（长链表的游标要先走几步），双指针相遇的地方就是交点；这个方法也有个trick，不妨设链表A比链表B短，pA遍历完A之后，把pA放到B的头部，继续同时遍历，pB到达B的尾部时再把pB放到A的头部，继续同时遍历找相遇点。
 
