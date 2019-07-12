@@ -26,8 +26,7 @@ public:
                     results.push_back(tri);
                     while(left < right && nums[left] == tri[1]) left++;
                     while(left < right && nums[right] == tri[2]) right--;
-                }
-                
+                }                
             }
             while(i+1 < nums.size() && nums[i] == nums[i+1]) i++;
         }
