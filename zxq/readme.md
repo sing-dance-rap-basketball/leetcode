@@ -102,6 +102,8 @@
   还是给行向量分类的思路，之前统计各类数量我用的是数组，现在改成了`std::map`、`std::unordered_map`，速度提高了很多，要注意的一点是`std::vector<int>`没法哈希，需要先转化成`std::string`。
 
 ## Array
+目前遇到的主要题型：=不定方程类型的题，比如#1、#15、#16、#18；二分查找的题，比如#33、#34、#35；双指针的灵活应用，这个就不举例了。
+
 - 1\. Two Sum
 - 5\. Median of Two Sorted Arrays
 - 11\. Container With Most Water
@@ -119,6 +121,7 @@
   
 - 33\. Search in Rotated Sorted Array
   
-  二分查找的变体，还是二分查找的思路，想了一下，本质上就是分类讨论。
+  二分查找的变体，还是二分查找的思路，想了一下，本质上就是分类讨论。后面有好几道也都是`Binary Search`。
 
-- 3
+- 34\. Find First and Last Position of Element in Sorted Array
+- 35\. Search Insert Position
