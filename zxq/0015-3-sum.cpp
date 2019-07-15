@@ -63,18 +63,53 @@
 //     }
 // };
 
+// /*
+//   √ 313/313 cases passed (112 ms)
+//   √ Your runtime beats 45.41 % of cpp submissions
+//   √ Your memory usage beats 45 % of cpp submissions (15.6 MB)
+//   √ 313/313 cases passed (108 ms)
+//   √ Your runtime beats 52.29 % of cpp submissions
+//   √ Your memory usage beats 43.89 % of cpp submissions (15.7 MB)
+// */
+// class Solution {
+// public:
+//     vector<vector<int>> threeSum(vector<int>& nums) {
+//         sort(nums.begin(), nums.end());
+//         int len = nums.size();
+//         vector<vector<int>> result;
+//         for (int i = 0; i < len-2; ) {
+//             int j = i+1, k = len-1;
+//             int target = -nums[i];
+//             while (j < k) {
+//                 if (nums[j] + nums[k] < target) {
+//                     for (j += 1; nums[j-1] == nums[j] && j < k; ++j);
+//                 }
+//                 else if (nums[j] + nums[k] > target) {
+//                     for (k -= 1; nums[k] == nums[k+1] && j < k; --k);
+//                 }
+//                 else {
+//                     vector<int> temp{nums[i], nums[j], nums[k]};
+//                     result.push_back(temp);
+//                     for (j += 1; nums[j-1] == nums[j] && j < k; ++j);
+//                     for (k -= 1; nums[k] == nums[k+1] && j < k; --k);
+//                 }
+//             }
+//             for (i += 1; nums[i-1] == nums[i] && i < len-2; ++i);
+//         }
+//         return result;
+//     }
+// };
+
 /*
-  √ 313/313 cases passed (112 ms)
-  √ Your runtime beats 45.41 % of cpp submissions
-  √ Your memory usage beats 45 % of cpp submissions (15.6 MB)
-  √ 313/313 cases passed (108 ms)
-  √ Your runtime beats 52.29 % of cpp submissions
-  √ Your memory usage beats 43.89 % of cpp submissions (15.7 MB)
+  略做优化：
+  √ 313/313 cases passed (92 ms)
+  √ Your runtime beats 95.09 % of cpp submissions
+  √ Your memory usage beats 72.09 % of cpp submissions (14.6 MB)
 */
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
         int len = nums.size();
         vector<vector<int>> result;
         for (int i = 0; i < len-2; ) {
@@ -82,19 +117,18 @@ public:
             int target = -nums[i];
             while (j < k) {
                 if (nums[j] + nums[k] < target) {
-                    for (j += 1; nums[j-1] == nums[j] && j < k; ++j);
+                    ++j;
                 }
                 else if (nums[j] + nums[k] > target) {
-                    for (k -= 1; nums[k] == nums[k+1] && j < k; --k);
+                    --k;
                 }
                 else {
-                    vector<int> temp{nums[i], nums[j], nums[k]};
-                    result.push_back(temp);
+                    result.push_back(vector<int>{nums[i], nums[j], nums[k]});
                     for (j += 1; nums[j-1] == nums[j] && j < k; ++j);
                     for (k -= 1; nums[k] == nums[k+1] && j < k; --k);
                 }
             }
-            for (i += 1; nums[i-1] == nums[i] && i < len-2; ++i);
+            for (i += 1; i < len-2 && nums[i-1] == nums[i]; ++i);
         }
         return result;
     }
