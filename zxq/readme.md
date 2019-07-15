@@ -110,3 +110,15 @@
   第一次写出的代码能跑通，但是时间复杂度太差，会超时；第二次的思路是先用`std::sort`排序，然后3Sum转化成2Sum来做，大概能超越一半人，代码优化了一下，好了很多。
 
 - 16\. 3Sum Closest
+- 18\. 4Sum
+- 26\. Remove Duplicates from Sorted Array
+- 27\. Remove Element
+- 31\. Next Permutation
+  
+  这题不难，但是感觉蛮有趣，可能是之前没做过字典序的题。本来想写个递归，写着写着就不用递归了。
+  
+- 33\. Search in Rotated Sorted Array
+  
+  二分查找的变体，还是二分查找的思路，想了一下，本质上就是分类讨论。
+
+- 3
