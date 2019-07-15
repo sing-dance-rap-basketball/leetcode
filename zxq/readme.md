@@ -1,4 +1,4 @@
-    # 随便写个标题
+# 随便写个标题
 
 ## 3. Longest Substring Without Repeating Characters
 - Approach 1: Brute Force
@@ -101,4 +101,12 @@
 
   还是给行向量分类的思路，之前统计各类数量我用的是数组，现在改成了`std::map`、`std::unordered_map`，速度提高了很多，要注意的一点是`std::vector<int>`没法哈希，需要先转化成`std::string`。
 
-# 
+## Array
+- 1\. Two Sum
+- 5\. Median of Two Sorted Arrays
+- 11\. Container With Most Water
+- 15\. 3Sum
+  
+  第一次写出的代码能跑通，但是时间复杂度太差，会超时；第二次的思路是先用`std::sort`排序，然后3Sum转化成2Sum来做，大概能超越一半人，代码优化了一下，好了很多。
+
+- 16\. 3Sum Closest
