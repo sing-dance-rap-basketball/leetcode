@@ -142,3 +142,9 @@
 - 41\. First Missing Positive
   
   题目要求 O(n) 时间，O(1) 额外空间，这是难点所在。我的做法是先用 `std::sort` 排序，然后简单地从头到尾过一遍（中途可以直接跳出），排序的时间复杂度是 O(logn) 的情况下，总的时间复杂度就是 O(n) 了，不过感觉这么做脱离了题目的本意。
+
+- 42\. Trapping Rain Water
+- 45\. Jump Game II
+- 48\. Rotate Image
+  
+  方阵顺时针旋转90°，等价于先翻折再转置，so easy！
