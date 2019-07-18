@@ -13,6 +13,8 @@
 ## Linked List
 先刷 `Linked List` 这个Tag下面的题目。
 
+刷完 `Linked List` 的心得就是没什么心得，毕竟是最基础的数据结构了，查找、插入、删除掌握熟练就好了，有时候自己定义一个 `dummy head` 会让编程方便不少，链表信息不全的时候快慢指针蛮有用的（倒查链表，链表分半，检测环）。
+
 - 2\. Add Two Numbers
 - 19\. Remove Nth Node From End of List
 - 21\. Merge Two Sorted Lists
@@ -52,7 +54,7 @@
 
 - 143\. Reorder List
 - 147\. Insertion Sort List
-- 148\. Sort List
+- 148\. Sort List (⭐) 
   
   复习了一遍排序算法：冒泡排序，快排，简单插入排序，希尔排序，简单选择排序，堆排序，二路/多路归并排序；计数排序，桶排序，基数排序。
 
@@ -60,7 +62,7 @@
 
   花点时间优化了一下，优化方法是把每次 `merge` 时候声明的 `dummy` 和游标指针放到了类内，而不是函数内，然后时间和空间占用都进步了一大截。
 
-- 160\. Intersection of Two Linked Lists
+- 160\. Intersection of Two Linked Lists (⭐)
   
   用了哈希表的想法，先把程序跑通，不考虑怎么做到 O(1) 的空间。我维护了一个关于第一个链表的 `std::set`，然后遍历第二个链表并同时查找，理论上速度应该是 O(m+nlogm)，运行速度很差；然后我把 `std::set` 改成了 `std::unordered_map`，理论上时间复杂度是 O(m+n)，实际表现一般般。
 
@@ -132,7 +134,7 @@
 
 - 34\. Find First and Last Position of Element in Sorted Array
 - 35\. Search Insert Position
-- 39\. Combination Sum
+- 39\. Combination Sum (⭐)
   
   这题是典型的不定方程，比 #40 难一点，思路就是遍历穷举，难点就是做到不重不漏、提高运行速度。
 
@@ -140,7 +142,7 @@
   
   这题是前面 2Sum、3Sum、4Sum 等求和题的集大成者了，思路一样，只不过参与求和的整数数量不确定，用递归好一点。
 
-- 41\. First Missing Positive
+- 41\. First Missing Positive (⭐)
   
   题目要求 O(n) 时间，O(1) 额外空间，这是难点所在。我的做法是先用 `std::sort` 排序，然后简单地从头到尾过一遍（中途可以直接跳出），排序的时间复杂度是 O(logn) 的情况下，总的时间复杂度就是 O(n) 了，不过感觉这么做脱离了题目的本意。
 
@@ -148,10 +150,31 @@
   
   不愧是 `hard`，比前面的题有意思一点，不过我蹲个坑的时间就想出来了，我的做法是双指针遍历，一个水坑一个水坑地累加起来。Top Voted Solution 里面有个7行的 c++ 解法，真是秀得一批，都没怎么看懂。
 
-- 45\. Jump Game II
+- 45\. Jump Game II (⭐)
 
   感觉这是一道比较水的 `hard`，看完题我就直接开写，我用的应该是动态规划（？），应该算贪心算法（？）；写完差不多就跑通了，只不过，最后一种 case 会超时，我针对这个输入样本打了个补丁，然后就 beats 97.28%，感觉这样有点鸡贼，内存占用也不理想，有待优化。
   
 - 48\. Rotate Image
   
   方阵顺时针旋转90°，等价于先翻折再转置，so easy！
+
+- 53\. Maximum Subarray
+  
+  先写了从头到尾走一遍就得出结果的 O(n) 解法，然后按 Follow up 的要求写了个分治的解法，感觉没有前一种好。
+
+- 54\. Spiral Matrix
+- 55\. Jump Game
+  
+  和之前 #45 (Jump Game II) 一样的情况，最后一种超长的 case 会超时。
+
+- 56\. Merge Intervals
+  
+  这个题是求闭区间的并，有两个坑：
+  - 给区间排序的时候用 `std::sort`，需要手写一个比较函数，开始在类内写了一个非静态成员函数，结果报错，有三种解决方法，第一种是写成静态成员函数（此时可以用 `Solution::compareInterval` 调用），第二种是用 `lambda` 函数，第三种是用 `std::bind` （这个不会）。
+  - 区间排序函数我本来写的是 `v1[0] <= v2[0]`，然后提交之后会 `Runtime error`，`<=` 改成 `<` 之后就打败了99%，好坑啊；从网上查反正就是用 `<` 和 `>` 更好一点，而且仿佛能保序（存疑），以后详细研究一下 `std::sort`。
+
+- 57\. Insert Interval
+  
+  虽然是 `hard`，但是感觉没多难，看到题就有思路，一会儿就写完提交被接受了，注意考虑情况要全面。
+
+- 59\. Spiral Matrix II
