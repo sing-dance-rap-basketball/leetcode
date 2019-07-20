@@ -5,7 +5,7 @@
  */
 // 为什么这么慢?
 class Solution {
-    static bool comp(vector<int> a, vector<int> b) {
+    static bool comp(vector<int>& a, vector<int>& b) {
         return a[0]< b[0];
     }
 public:
@@ -15,16 +15,13 @@ public:
         if(n==0) {
             return results;
         }
-        int cnt = 0;
-        results.reserve(n);
         sort(intervals.begin(), intervals.end(), comp);
         results.push_back(intervals[0]);
-        for(int i=1; i < n; i++) {
-            if(intervals[i][0] <= results[cnt][1]) {
-                results[cnt][1] = max(intervals[i][1], results[cnt][1]);
+        for(auto& interval: intervals) {
+            if(interval[0]<=results.back()[1]) {
+                results.back()[1] = max(interval[1], results.back()[1]);
             } else {
-                results.push_back(intervals[i]);
-                cnt++;
+                results.push_back(interval);
             }
         }
         return results;
