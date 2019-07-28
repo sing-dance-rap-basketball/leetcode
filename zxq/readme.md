@@ -121,7 +121,7 @@
 目前遇到的主要题型：
 - 灵活应用双指针：#5、#11、#26、#27、#42、#80；求和类型的题里也有用到双指针甚至多指针的技巧；
 - 求和/不定方程类型：#1、#15、#16、#18、#39、#40；
-- 二分查找：#33、#34、#35、#74、#81；
+- 二分查找：#33、#34、#35、#74、#81、#153、#154；
 - 动态规划：#62、#63、#64、#120；
 - 分治：#53（不分治更简单）；
 - 排序：#75（计数排序）；
@@ -258,3 +258,8 @@
 - 121\. Best Time to Buy and Sell Stock
 - 122\. Best Time to Buy and Sell Stock II
 - 123\. Best Time to Buy and Sell Stock III
+- 126\. Word Ladder II
+- 128\. Longest Consecutive Sequence
+- 152\. Maximum Product Subarray
+- 153\. Find Minimum in Rotated Sorted Array
+- 154\. Find Minimum in Rotated Sorted Array II
