@@ -29,3 +29,31 @@ public:
         }
     }
 };
+
+/**
+ * Runtime: 4 ms, faster than 58.38% of C++ online submissions for Climbing Stairs.
+ * Memory Usage: 8.2 MB, less than 76.47% of C++ online submissions for Climbing Stairs.
+ * 正着推过去不用额外空间…… 
+ */
+
+class Solution {
+public:
+    int climbStairs(int n) {
+        int ret = 0;
+        int a = 1, b = 2;
+        if (n == 1)
+            return 1;
+        else if(n == 2)
+            return 2;
+        else {
+            for (int i = 2; i < n; ++i) {
+                ret = a + b;
+                if (i % 2 == 0)
+                    a = ret;
+                else
+                    b = ret;
+            }
+        }
+        return ret;
+    }
+};
