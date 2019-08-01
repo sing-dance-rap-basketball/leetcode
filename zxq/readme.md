@@ -121,12 +121,13 @@
 目前遇到的主要题型：
 - 灵活应用双指针：#5、#11、#26、#27、#42、#80；求和类型的题里也有用到双指针甚至多指针的技巧；
 - 求和/不定方程类型：#1、#15、#16、#18、#39、#40；
-- 二分查找：#33、#34、#35、#74、#81、#153、#154；
+- 二分查找：#33、#34、#35、#74、#81、#153、#154、#162、#167；
 - 动态规划：#62、#63、#64、#120；
 - 分治：#53（不分治更简单）；
 - 排序：#75（计数排序）；
 - 贪婪：#45（和BFS差不多）、#55；
 - 回溯：#39、#40、#78（借助位运算也可以）、#79（和DFS差不多）、#90；
+- 哈希：#217、#219
 
 下面是 `Array` Tag 下的题目列表：
 - 1\. Two Sum
@@ -263,3 +264,15 @@
 - 152\. Maximum Product Subarray
 - 153\. Find Minimum in Rotated Sorted Array
 - 154\. Find Minimum in Rotated Sorted Array II
+- 162\. Find Peak Element
+- 167\. Two Sum II - Input array is sorted
+- 169\. Majority Element
+  
+  这个题看着很简单，但是做法很多，哈希、排序、随机、分治、位操作都可以，还有一种没听过的方法是 Boyer–Moore majority vote algorithm，这个方法很有趣。
+
+- 189\. Rotate Array
+- 209\. Minimum Size Subarray Sum
+- 216\. Combination Sum III
+- 217\. Contains Duplicate
+- 219\. Contains Duplicate II
+- 228\. Summary Ranges
