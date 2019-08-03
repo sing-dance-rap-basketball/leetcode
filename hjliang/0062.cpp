@@ -27,3 +27,28 @@ public:
         return ret;
     }
 };
+
+/**
+ * Runtime: 4 ms, faster than 59.60% of C++ online submissions for Unique Paths.
+ * Memory Usage: 8 MB, less than 100.00% of C++ online submissions for Unique Paths.
+ * 越来越不明白判题这个规则了
+ */
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int DP[m][n] = {0};
+        
+        for (int i = 0; i < m; ++i)
+            DP[i][0] = 1;
+        for (int i = 0; i < n; ++i)
+            DP[0][i] = 1;
+        
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                DP[i][j] = DP[i][j-1] + DP[i-1][j];
+            }
+        }
+        return DP[m-1][n-1];
+    }
+};
