@@ -286,3 +286,20 @@
 - 287\. Find the Duplicate Number
   
   想了半天也没想到二分查找还能这么用，没绕过来这个弯。除了二分查找，还有一种快慢指针的思路，看起来更有趣。
+
+- 289\. Game of Life
+- 380\.
+- 381\.
+- 414\. Third Maximum Number
+- 442\. Find All Duplicates in an Array
+  
+  这题和 #448 用了同一个技巧，就是用数组中第 i 个元素的性质（正负等）标识整数 i 是否存在。
+
+- 448\. Find All Numbers Disappeared in an Array
+- 457\. Circular Array Loop
+  
+  题目比较没劲，不过做这个题我发现在 C++ 里面，`-7/2=-1`，整数除法求余数是根据商的结果计算出来的。
+
+- 485\. Max Consecutive Ones
+- 495\. Teemo Attacking
+- 532\. K-diff Pairs in an Array
