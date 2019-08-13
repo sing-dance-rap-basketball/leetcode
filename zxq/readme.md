@@ -129,6 +129,7 @@
 - 回溯：#39、#40、#78（借助位运算也可以）、#79（和DFS差不多）、#90；
 - 哈希：#217、#219
 - 位运算：#268
+- DFS：#695
 
 下面是 `Array` Tag 下的题目列表：
 - 1\. Two Sum
@@ -303,3 +304,36 @@
 - 485\. Max Consecutive Ones
 - 495\. Teemo Attacking
 - 532\. K-diff Pairs in an Array
+- 560\. Subarray Sum Equals K
+  
+  做了这道题掌握了一个关于 `std::map` 和 `std::unordered_map` 的知识点，使用下标访问不存在的 key 的时候，会为这个 key 生成一个默认的 value，使用 `at()` 方法访问不存在的 key 的时候，会报 out-of-range。
+
+- 561\. Array Partition I
+- 565\. Array Nesting
+- 566\. Reshape the Matrix
+- 581\. Shortest Unsorted Continuous Subarray
+  
+  这题标的是 easy，虽然确实不是很难，但感觉也不是 easy 的程度，而且这题蛮有意思的。
+
+- 605\. Can Place Flowers
+- 611\. Valid Triangle Number
+- 621\. Task Scheduler
+- 628\. Maximum Product of Three Numbers
+- 643\. Maximum Average Subarray I
+- 661\. Image Smoother
+  
+  垃圾题目，code 半小时，debug 半小时，bug 原因是有一个方括号错写成了花括号，找得眼睛都瞎了。
+
+- 665\. Non-decreasing Array
+  
+  感觉和 #581 有一丢丢相似。
+
+- 667\. Beautiful Arrangement II
+- 670\. Maximum Swap
+- 674\. Longest Continuous Increasing Subsequence
+- 689\. Maximum Sum of 3 Non-Overlapping Subarrays
+- 695\. Max Area of Island
+  
+  debug 花了一个小时，bug 原因是在 dfs 过程中，对已遍历的元素，应该有一步 `grid[i][j] = 0`，我写成了 `grid[i][j] == 0`，吐血了。
+
+- 697\. Degree of an Array
