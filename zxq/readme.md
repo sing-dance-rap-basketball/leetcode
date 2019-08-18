@@ -337,3 +337,46 @@
   debug 花了一个小时，bug 原因是在 dfs 过程中，对已遍历的元素，应该有一步 `grid[i][j] = 0`，我写成了 `grid[i][j] == 0`，吐血了。
 
 - 697\. Degree of an Array
+- 713\. Subarray Product Less Than K
+- 714\. Best Time to Buy and Sell Stock with Transaction Fee
+- 717\. 1-bit and 2-bit Characters
+- 718\. Maximum Length of Repeated Subarray
+  
+  这题蛮有意思，解法超时了，暂时没想出新解法。
+
+- 719\. Find K-th Smallest Pair Distance
+- 724\. Find Pivot Index
+- 729\. My Calendar I
+- 747\. Largest Number At Least Twice of Others
+- 748\. Shortest Completing Word
+- 756\. Pyramid Transition Matrix
+- 777\. Swap Adjacent in LR String
+- 779\. K-th Symbol in Grammar
+- 780\. Reaching Points
+  
+  是道 hard，但是没多大时间就 ac 了，有点辗转相除法的意思，蛮有趣。
+
+- 790\. Domino and Tromino Tiling
+  
+  会一步步手算，暂时没推出公式解，通过观察部分结果，归纳出递推性质：
+  $$
+  a_n = 2 \times a_{n-1} + a_{n-3} \qquad (n > 3)
+  $$
+  看了 discussion，大概想明白了，用动态规划的思路，不妨设 $a_0 = 1$，初始条件是 $a_1 = 1$ 和 $a_2 = 2$，考虑一般的 $a_n (n \geq 3)$，由三部分组成：
+  
+  - 对于宽为 $n-1$ 的情形，右边再放一个竖条，这部分数量是 $a_{n-1}$；
+  - 对于宽为 $n-2$ 的情形，右边再放两个横条（即一个 $2\times 2$），这部分数量是 $a_{n-2}$；
+  - 对于宽为 $0$ 到 $n-3$ 的情形，右边相应地要再放宽为 $n$ 到 $3$ 的一条，每种情形有两种方式（这里指的是不能拆分成更小宽度的方式），这部分数量是 $2 \times \sum_{0}^{n-3} a_i$；
+  
+  综上，
+  $$
+  \begin{split}
+  a_n &= a_{n-1} + a_{n-2} + 2 \times \sum_{0}^{n-3} a_i \quad (n \geq 3) \\
+  &= a_{n-1} + a_{n-3} + (a_{n-2} + a_{n-3} + 2 \times \sum_{0}^{n-4} a_i) \\
+  &= a_{n-1} + a_{n-3} + a_{n-1} \\
+  &= 2 \times a_{n-1} + a_{n-3}
+  \end{split}
+  $$
+
+
+- 798\. 
