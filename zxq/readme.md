@@ -369,14 +369,16 @@
   - 对于宽为 $0$ 到 $n-3$ 的情形，右边相应地要再放宽为 $n$ 到 $3$ 的一条，每种情形有两种方式（这里指的是不能拆分成更小宽度的方式），这部分数量是 $2 \times \sum_{0}^{n-3} a_i$；
   
   综上，
+
   $$
-  \begin{split}
-  a_n &= a_{n-1} + a_{n-2} + 2 \times \sum_{0}^{n-3} a_i \quad (n \geq 3) \\
-  &= a_{n-1} + a_{n-3} + (a_{n-2} + a_{n-3} + 2 \times \sum_{0}^{n-4} a_i) \\
-  &= a_{n-1} + a_{n-3} + a_{n-1} \\
-  &= 2 \times a_{n-1} + a_{n-3}
-  \end{split}
+  a_n = a_{n-1} + a_{n-2} + 2 \times \sum_{0}^{n-3} a_i
+    = a_{n-1} + a_{n-3} + (a_{n-2} + a_{n-3} + 2 \times \sum_{0}^{n-4} a_i)
+    = a_{n-1} + a_{n-3} + a_{n-1}
+    = 2 \times a_{n-1} + a_{n-3}
   $$
 
+- 798\. Smallest Rotation with Highest Score
+  
+  这题很有趣，最开始写的最笨的 `O(N^2)` 的方法果然超时；然后写了一个更好的 `O(N^2)` 的方法，对每一个元素统计能使它得分的转动量 `K`，更快了一些，但还是会超时，稍稍优化一下，勉勉强强 ac 了；后来看了 discussion 里面好多个讨论，看懂了[这位网友的解释](https://leetcode.com/problems/smallest-rotation-with-highest-score/discuss/118725/C%2B%2BJavaPython-Solution-with-Explanation)，非常感谢他。
 
-- 798\. 
+  这题的关键就是，对于每一个元素，能使他得分（或者失分）的转动量 `K` 构成了一个区间（也可能是两个），如何以 `O(N)` 的时间复杂度，找到所有区间中出现次数最多的 `index`。对于区间 `[a,b]`，可以写成 `[a,b+1)`，假设这是一个得分区间，然后维护一个数组，数组第 `a` 项加 1，数组第 `b+1` 项减 1，然后从头到尾累加，就可以得到每项的正确的分数。这个思路很巧妙，学习了。
