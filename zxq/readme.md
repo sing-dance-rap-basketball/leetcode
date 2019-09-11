@@ -118,19 +118,6 @@
 
 
 ## Array
-目前遇到的主要题型：
-- 灵活应用双指针：#5、#11、#26、#27、#42、#80、#283；求和类型的题里也有用到双指针甚至多指针的技巧；
-- 求和/不定方程类型：#1、#15、#16、#18、#39、#40；
-- 二分查找：#33、#34、#35、#74、#81、#153、#154、#162、#167、#287；
-- 动态规划：#62、#63、#64、#120；
-- 分治：#53（不分治更简单）；
-- 排序：#75（计数排序）；
-- 贪婪：#45（和BFS差不多）、#55；
-- 回溯：#39、#40、#78（借助位运算也可以）、#79（和DFS差不多）、#90；
-- 哈希：#217、#219
-- 位运算：#268
-- DFS：#695
-
 下面是 `Array` Tag 下的题目列表：
 - 1\. Two Sum
 - 5\. Median of Two Sorted Arrays
@@ -382,3 +369,32 @@
   这题很有趣，最开始写的最笨的 `O(N^2)` 的方法果然超时；然后写了一个更好的 `O(N^2)` 的方法，对每一个元素统计能使它得分的转动量 `K`，更快了一些，但还是会超时，稍稍优化一下，勉勉强强 ac 了；后来看了 discussion 里面好多个讨论，看懂了[这位网友的解释](https://leetcode.com/problems/smallest-rotation-with-highest-score/discuss/118725/C%2B%2BJavaPython-Solution-with-Explanation)，非常感谢他。
 
   这题的关键就是，对于每一个元素，能使他得分（或者失分）的转动量 `K` 构成了一个区间（也可能是两个），如何以 `O(N)` 的时间复杂度，找到所有区间中出现次数最多的 `index`。对于区间 `[a,b]`，可以写成 `[a,b+1)`，假设这是一个得分区间，然后维护一个数组，数组第 `a` 项加 1，数组第 `b+1` 项减 1，然后从头到尾累加，就可以得到每项的正确的分数。这个思路很巧妙，学习了。
+
+- 808\. Soup Servings
+- 811\. Subdomain Visit Count
+- 852\. Peak Index in a Mountain Array
+  
+  Mountain Array
+
+- 857\. Minimum Cost to Hire K Workers
+- 861\. Score After Flipping Matrix
+- 864\. Shortest Path to Get All Keys
+- 870\. Advantage Shuffle
+- 879\. Profitable Schemes
+- 898\. Bitwise ORs of Subarrays
+  
+  brute force -> frontier set
+
+  Time Complexity: O($N \log W$), where `N` is the length of `A`, and `W` is the maximum size of elements in `A`.
+
+  Space Complexity: O($N \log W$), the size of the answer.
+  
+- 901\. Online Stock Span
+- 905\. Sort Array By Parity
+- 924\. Minimize Malware Spread
+- 927\. Three Equal Parts
+- 932\. Beautiful Array
+- 936\. Stamping The Sequence
+- 941\. Valid Mountain Array
+- 943\. Find the Shortest Superstring
+- 
