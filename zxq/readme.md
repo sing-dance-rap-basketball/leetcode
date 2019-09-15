@@ -253,6 +253,9 @@
 - 126\. Word Ladder II
 - 128\. Longest Consecutive Sequence
 - 152\. Maximum Product Subarray
+  
+  Maximum Subarray 类型的问题，从 discussion 学到了一种蛮有意思的解法。
+
 - 153\. Find Minimum in Rotated Sorted Array
 - 154\. Find Minimum in Rotated Sorted Array II
 - 162\. Find Peak Element
