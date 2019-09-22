@@ -249,7 +249,15 @@
 - 120\. Triangle
 - 121\. Best Time to Buy and Sell Stock
 - 122\. Best Time to Buy and Sell Stock II
+  
+  #162 和 #852 中提到了 peak，这题的思路有所借鉴，用相邻的右边的 peak 减去 左边的 peak，完成一次交易，所有的交易加起来得出结果。
+
 - 123\. Best Time to Buy and Sell Stock III
+
+  本来想借鉴上一题的思路，从所有交易中找到最大的两次交易，但是发现事情并不那么简单。
+
+  整了一个 `vector` 记录 `prices` 中依次出现的 valley 和 peak；然后把 `vector` 分成前后两段，每段用 #121 的思路求相应的 max_profit，两个 max_profit 加起来；把 `vector` 多次分段，找最大的和即可。
+
 - 126\. Word Ladder II
 - 128\. Longest Consecutive Sequence
 - 152\. Maximum Product Subarray
