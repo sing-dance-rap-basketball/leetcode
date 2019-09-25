@@ -260,6 +260,13 @@
 
 - 126\. Word Ladder II
 - 128\. Longest Consecutive Sequence
+  
+  先试了试笨办法，先排序，然后从头到尾遍历一遍，时间复杂度明显不是 O(N)，但 ac 了，还挺快。
+
+  还有种思路是先把数字都加到 hash 表里面，然后用类似 brute force 的方法。
+
+  然后在代码里实现了一个并查集的类，类中算法用到了 weighted quick-union with path compression，union 和 find 的时间复杂度都近乎线性；实现了并查集的类之后发现并不知道怎么以线性时间复杂度解决这道题；在网上的 discussion 里面 copy 了一份用并查集的解法，感觉并没有前两种方法好。
+
 - 152\. Maximum Product Subarray
   
   Maximum Subarray 类型的问题，从 discussion 学到了一种蛮有意思的解法。
