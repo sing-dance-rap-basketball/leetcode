@@ -143,7 +143,7 @@
 
 - 34\. Find First and Last Position of Element in Sorted Array
 - 35\. Search Insert Position
-- 39\. Combination Sum (⭐)
+- 39\. Combination Sum
   
   这题是典型的不定方程，比 #40 难一点，思路就是遍历穷举，难点就是做到不重不漏、提高运行速度。
   
@@ -153,17 +153,17 @@
   
   这题是前面 2Sum、3Sum、4Sum 等求和题的集大成者了，思路一样，只不过参与求和的整数数量不确定，用递归好一点。
 
-- 41\. First Missing Positive (⭐)
+- 41\. First Missing Positive
   
   题目要求 O(n) 时间，O(1) 额外空间，这是难点所在。我的做法是先用 `std::sort` 排序，然后简单地从头到尾过一遍（中途可以直接跳出），排序的时间复杂度是 O(nlogn)，不过感觉这么做脱离了题目的本意。
 
   看了网上的讨论，一种解决思路是，维护一个数组标记 `1` 到 `nums.size()-1` 的数是否存在，先遍历 `nums` 一遍，再遍历这个数组一遍，这种思路的改进是不创建新数组，在 `nums` 内部遍历一遍，介于 `1` 到 `nums.size()-1` 的数 `k` 放到 `nums[k-1]` 中，然后遍历第二遍就可以找到目标；另一种解决思路是，先用快排里面的技巧，把数组中的正数放到数组前半段，然后把正数遍历一遍，如果数 `k` 存在，就把 `nums[k-1]` 改为绝对值不变的负数，再遍历一遍前半段，就可以找到目标，这种方法不见得更好，但是感觉这种标记方法很有趣。
 
-- 42\. Trapping Rain Water (⭐)
+- 42\. Trapping Rain Water
   
   不愧是 `hard`，比前面的题有意思一点，不过我蹲个坑的时间就想出来了，我的做法是双指针遍历，一个水坑一个水坑地累加起来。Top Voted Solution 里面有个7行的 c++ 解法，真是秀得一批，都没怎么看懂。
 
-- 45\. Jump Game II (⭐)
+- 45\. Jump Game II
 
   感觉这是一道比较水的 `hard`，看完题我就直接开写，我用的应该是动态规划（？）；写完差不多就跑通了，只不过，最后一种 case 会超时，我针对这个输入样本打了个补丁，然后就 beats 97.28%，感觉这样有点鸡贼，内存占用也不理想，有待优化。
 
@@ -178,7 +178,7 @@
   先写了从头到尾走一遍就得出结果的 O(n) 解法，然后按 Follow up 的要求写了个分治的解法，感觉没有前一种好。
 
 - 54\. Spiral Matrix
-- 55\. Jump Game (⭐)
+- 55\. Jump Game
   
   和之前 #45 (Jump Game II) 一样的情况，最后一种超长的 case 会超时。
 
@@ -258,6 +258,8 @@
 
   整了一个 `vector` 记录 `prices` 中依次出现的 valley 和 peak；然后把 `vector` 分成前后两段，每段用 #121 的思路求相应的 max_profit，两个 max_profit 加起来；把 `vector` 多次分段，找最大的和即可。
 
+  看了一下官网上的[题解](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/)，发现买卖股票的题有很多道，可以用动态规划的方法来做，打算抽个时间把这几道一起做一下。动态规划的关键是要搞清楚怎么描述状态，进而描述状态之间的转移。
+
 - 126\. Word Ladder II
 - 128\. Longest Consecutive Sequence
   
@@ -306,8 +308,6 @@
 
   这个问题的 follow-up 讨论了解法的可扩展性，即题目中给的矩阵大小很大的时候，如何处理，一方面要考虑一次读取一部分数据到内存中，另一方面当 live cell 很稀疏的时候，最好只考虑 live cell 的位置。
 
-- 380\. Insert Delete GetRandom O(1)
-- 381\. Insert Delete GetRandom O(1) - Duplicates allowed
 - 414\. Third Maximum Number
 - 442\. Find All Duplicates in an Array
   
@@ -349,6 +349,9 @@
 - 670\. Maximum Swap
 - 674\. Longest Continuous Increasing Subsequence
 - 689\. Maximum Sum of 3 Non-Overlapping Subarrays
+  
+  这个题有点意思，最开始写了个套娃式的解法，经过 debug 发现这个思路有缺陷。
+
 - 695\. Max Area of Island
   
   debug 花了一个小时，bug 原因是在 dfs 过程中，对已遍历的元素，应该有一步 `grid[i][j] = 0`，我写成了 `grid[i][j] == 0`，吐血了。
@@ -356,6 +359,9 @@
 - 697\. Degree of an Array
 - 713\. Subarray Product Less Than K
 - 714\. Best Time to Buy and Sell Stock with Transaction Fee
+  
+  暂时不做，留到后面研究动态规划的时候再做。
+
 - 717\. 1-bit and 2-bit Characters
 - 718\. Maximum Length of Repeated Subarray
   
