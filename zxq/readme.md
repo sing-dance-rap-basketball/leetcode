@@ -266,6 +266,8 @@
   还有种思路是先把数字都加到 hash 表里面，然后用类似 brute force 的方法。
 
   然后在代码里实现了一个并查集的类，类中算法用到了 weighted quick-union with path compression，union 和 find 的时间复杂度都近乎线性；实现了并查集的类之后发现并不知道怎么以线性时间复杂度解决这道题；在网上的 discussion 里面 copy 了一份用并查集的解法，感觉并没有前两种方法好。
+  
+  做这题的时候还发现了一个小坑，使用容器的 `size()` 方法时，如果 `stl.size()` 是 `0u`，`stl.size()-1` 会是一个很大的正数，这点要注意，此时尽量用 `empty()` 方法单独判断。
 
 - 152\. Maximum Product Subarray
   
@@ -281,6 +283,9 @@
 
 - 189\. Rotate Array
 - 209\. Minimum Size Subarray Sum
+  
+  一道中等难度但是蛮有趣的双指针的题。
+
 - 216\. Combination Sum III
 - 217\. Contains Duplicate
 - 219\. Contains Duplicate II
@@ -294,8 +299,15 @@
   想了半天也没想到二分查找还能这么用，没绕过来这个弯。除了二分查找，还有一种快慢指针的思路，看起来更有趣。
 
 - 289\. Game of Life
-- 380\.
-- 381\.
+  
+  想了个小点子，用十位表示新状态，个位表示愿状态，这样第一次遍历就可以 in-place 更新了，感觉还不错。
+
+  官方给的解答也是类似的思路，1->0 用 -1 表示，0->1 用 2 表示。
+
+  这个问题的 follow-up 讨论了解法的可扩展性，即题目中给的矩阵大小很大的时候，如何处理，一方面要考虑一次读取一部分数据到内存中，另一方面当 live cell 很稀疏的时候，最好只考虑 live cell 的位置。
+
+- 380\. Insert Delete GetRandom O(1)
+- 381\. Insert Delete GetRandom O(1) - Duplicates allowed
 - 414\. Third Maximum Number
 - 442\. Find All Duplicates in an Array
   
