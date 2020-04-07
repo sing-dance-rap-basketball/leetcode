@@ -11,6 +11,33 @@
  *  Your runtime beats 100 % of cpp submissions
  *  Your memory usage beats 100 % of cpp submissions (6.1 MB)
  */
+// class Solution {
+// public:
+//     string convertToTitle(int n) {
+//         if (n <= 0) {
+//             exit(-1);
+//         }
+
+//         string ans;
+//         if (n <= 26) {
+//             ans.push_back('A' - 1 + n);
+//         }
+//         else {
+//             ans = convertToTitle((n - 1) / 26);
+//             n = (n - 1) % 26 + 1;
+//             ans += convertToTitle(n);
+//         }
+        
+//         return ans;
+//     }
+// };
+
+/**
+ * Accepted
+    18/18 cases passed (0 ms)
+    Your runtime beats 100 % of cpp submissions
+    Your memory usage beats 100 % of cpp submissions (6 MB)
+ */
 class Solution {
 public:
     string convertToTitle(int n) {
@@ -19,17 +46,15 @@ public:
         }
 
         string ans;
-        if (n <= 26) {
-            ans.push_back('A' - 1 + n);
-        }
-        else {
-            ans = convertToTitle((n - 1) / 26);
-            n = (n - 1) % 26 + 1;
-            ans += convertToTitle(n);
+        while (n > 0) {
+            int remainder = (n - 1) % 26;
+            ans.insert(ans.begin(), 'A' + remainder);
+            n = (n - 1) / 26;
         }
         
         return ans;
     }
 };
+
 // @lc code=end
 
