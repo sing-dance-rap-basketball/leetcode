@@ -28,9 +28,9 @@
 
 ## 43 Multiply Strings
 
-这题用了快速笔算乘法的一个思路，而不是小学学的乘法竖式（进位乘法）思路，注意乘积位数的细节。
+这题用了快速笔算乘法的一个思路，而不是小学学的乘法竖式（进位乘法）思路，注意乘积位数的细节．
 
-看了社区里的讨论，乘法竖式也很简单，代码如下。
+看了社区里的讨论，乘法竖式也很简单，代码如下．
 
 ```c++
 string multiply(string num1, string num2) {
@@ -54,11 +54,11 @@ string multiply(string num1, string num2) {
 
 ## 50 Pow(x, n)
 
-跟 #29 思路一样。
+跟 #29 思路一样．
 
-## 60 Permutation Sequence
+## 60 Permutation Sequence (✨)
 
-按字典序找第 $k$ 小的 $n$ 排列。我的思路是先找首位数字，然后在 $1$ 到 $n$ 中删去首位数字，其余数字由小到大的顺序不变，再继续找第二位数字，以此类推。没有用回溯的思路。优化后的代码如下：
+按字典序找第 $k$ 小的 $n$ 排列．我的思路是先找首位数字，然后在 $1$ 到 $n$ 中删去首位数字，其余数字由小到大的顺序不变，再继续找第二位数字，以此类推．没有用回溯的思路．优化后的代码如下：
 
 ```c++
 string getPermutation(int n, int k) {
@@ -84,7 +84,7 @@ string getPermutation(int n, int k) {
 }
 ```
 
-上面代码中有一个小技巧是，因为要计算的阶乘较少，所以直接生成一个阶乘表，不需要另写一个函数；事实上，还可以进一步改进，代码中求的阶乘每次减一，所以只需要维持一个记录阶乘值的整数，每次用它计算下一次的阶乘。
+上面代码中有一个小技巧是，因为要计算的阶乘较少，所以直接生成一个阶乘表，不需要另写一个函数；事实上，还可以进一步改进，代码中求的阶乘每次减一，所以只需要维持一个记录阶乘值的整数，每次用它计算下一次的阶乘．
 
 ## 65 Valid Number
 
@@ -108,3 +108,166 @@ string getPermutation(int n, int k) {
 ## 69 Sqrt(x)
 
 ## 149 Max Points on a Line
+
+看了[这个分享](https://leetcode.com/problems/max-points-on-a-line/discuss/47117/Sharing-my-simple-solution-with-explanation)，思路不是很复杂，固定一个点，用哈希表记录该点与其他点连线，哈希表的 `key`：
+- 用斜率是一种思路，此时斜率是一个浮点数，`unordered_map` 可以直接用；
+- 我选择的是直线的方向向量，向量要化简，化简时注意直线斜率不存在的情形；`pair` 作为 `unordered_map` 的 `key` 需要为 `pair` 添加 `hash` 函数，参见[这一文章](https://blog.csdn.net/sinat_35261315/article/details/76473867)；`pair` 作为 `map` 的 `key` 没有这种问题．
+
+注意输入为空的情形，最坑的是要注意重复的点．
+
+## 166 Fraction to Recurring Decimal
+
+有点意思，还没做．
+
+## 168 Excel Sheet Column Title
+
+挺简单的题，做错了好多遍，注意不是简单的求余数和除法．
+
+## 171 Excel Sheet Column Number
+
+## 172 Factorial Trailing Zerose
+
+## 202 Happy Number
+
+## 204 Count Primes (✨)
+
+这题还是有点意思的，数比 $n$ 小的素数数量．
+
+第一种思路就是一个个判断素数，维护一个以确定的素数表可以更省事．
+
+第二种思路是从小到大，如果是素数，就把以它为因数的合数都标记出来，这种方法占用空间多一点，但是更快．代码中针对这个思路优化了好几版，最后一版借鉴了[这个分享](https://leetcode.com/problems/count-primes/discuss/57593/12-ms-Java-solution-modified-from-the-hint-method-beats-99.95)，很精致．
+
+## 223 Rectangle Area
+
+还没做
+
+## 224 Basic Calculator
+
+还没做
+
+## 231 Power of Two
+
+`n & (n-1)`
+
+## 233 Number of Digit One
+
+还没做
+
+## 258 Add Digits
+
+弃九验算法．
+
+## 263 Ugly Number
+
+## 264 Ugly Number II (✨)
+
+这个题用了动态规划，思路真的很精致。
+
+## 268 Missing Number
+
+可以利用异或的交换律和结合律，找出目标．通过处理数组中数的范围来标定下标也是一种思路，但是容易出 bug，没写这种方法．
+
+## 273 Integer to English Words
+
+这题达不到 `hard` 的难度，就是需要分类讨论 +　注意细节．
+
+## 279 Perfect Squares
+
+按我的思路写了个 bfs + dp，过了但是很慢，有待优化．
+
+## 313 Super Ugly Number
+
+一种做法是依照 `#264 Ugly Number II` 的动态规划的思路。
+
+另一种做法用堆，Python 代码如下
+```python
+def nthSuperUglyNumber(self, n, primes):
+    uglies = [1]
+    def gen(prime):
+        for ugly in uglies:
+            yield ugly * prime
+    merged = heapq.merge(*map(gen, primes))
+    while len(uglies) < n:
+        ugly = next(merged)
+        if ugly != uglies[-1]:
+            uglies.append(ugly)
+    return uglies[-1]
+```
+
+应该还有更优化的方法，不想细究了。
+
+## 319 Bulb Switcher
+
+这题利用了只有完全平方数有奇数个因数的性质．
+
+## 326 Power of Three
+
+这题没有 `#231 Power of Two` 用到的小技巧，只能一个一个除以 3．有一个骚操作是，`int` 范围内最大的 3 的幂是 $3^{19} = 1162261467$，直接判断是不是这个数的因数就可以了．
+
+## 357 Count Numbers with Unique Digits
+
+这题求 $S(n) = \# \{x \in \N \vert x < 10^n \}$，数学推导即可，$S(0) = 1$，$S(1) = 10$，$n > 1$ 时，
+
+$$
+S(n) = S(n-2) + P_{10}^{n} + (n-2)P_{9}^{n-2}
+$$
+
+另一种思路是，考虑 $T(n) = \# \{x \in \N \vert 10^{n-1} \leq x < 10^n, \ n > 0 \}$，有
+
+$$
+T(n) = P_{10}^{n} - P_{9}^{n-1} = 9P_{9}^{n-1}
+$$
+
+## 367 Valid Perfect Square
+
+## 372 Super Pow
+
+一个简单的利用同余性质的问题，没什么特别之处，感觉自己这题的代码写得不错．
+
+## 396 Rotate Function
+
+找 $F(k)$ 的增长规律即可．
+
+## 397 Integer Replacement
+
+## 400 Nth Digit
+
+## 413 Arithmetic Slices
+
+## 423 Reconstruct Original Digits from English
+
+## 441 Arranging Coins
+
+## 453 Minimum Moves to Equal Array Elements
+
+## 462 Minimum Moves to Equal Array Elements II
+
+## 483 Smallest Good Base
+
+## 507 Perfect Number
+
+## 517 Super Washing Machines
+
+## 523 Continuous Subarray Sum
+
+## 537 Complex Number Multiplication
+
+整数、浮点数转为字符串，可以用 `std::to_string()` 或 `stringstream`．反过来，字符串转为整数、浮点数，可以用 `stringstream`，C++ 中 `std::stoi()` 系列的函数，C 中 `atoi()` 系列的函数，还有 `sscanf`．
+
+## 593 Valid Square
+
+给定四个点，判断能否构成正方形，计算可以连成的六条线段的长度平方，其中四条短的长度相同，另外两条长的长度相同，且长度平方有个 2 倍的关系．
+
+## 598 Range Addition II
+
+## 633 Sum of Square Numbers
+
+## 640 Solve the Equation
+
+这种跟表达式求解有关的题做起来真蛋疼。
+
+## 645 Set Mismatch
+
+利用数组下标做标记。
+
+## 670 Maximum Swap
