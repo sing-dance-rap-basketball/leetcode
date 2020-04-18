@@ -28,7 +28,7 @@
 
 ## 43 Multiply Strings
 
-这题用了快速笔算乘法的一个思路，而不是小学学的乘法竖式（进位乘法）思路，注意乘积位数的细节．
+字符串数学计算类型的问题。这题用了快速笔算乘法的一个思路，而不是小学学的乘法竖式（进位乘法）思路，注意乘积位数的细节．
 
 看了社区里的讨论，乘法竖式也很简单，代码如下．
 
@@ -56,7 +56,7 @@ string multiply(string num1, string num2) {
 
 跟 #29 思路一样．
 
-## 60 Permutation Sequence (✨)
+## 60 Permutation Sequence (⭐)
 
 按字典序找第 $k$ 小的 $n$ 排列．我的思路是先找首位数字，然后在 $1$ 到 $n$ 中删去首位数字，其余数字由小到大的顺序不变，再继续找第二位数字，以此类推．没有用回溯的思路．优化后的代码如下：
 
@@ -129,7 +129,7 @@ string getPermutation(int n, int k) {
 
 ## 202 Happy Number
 
-## 204 Count Primes (✨)
+## 204 Count Primes (⭐)
 
 这题还是有点意思的，数比 $n$ 小的素数数量．
 
@@ -151,7 +151,7 @@ string getPermutation(int n, int k) {
 
 ## 233 Number of Digit One
 
-还没做
+从个位开始，依次统计每一位出现的 1 的个数，这种思路比较简单。
 
 ## 258 Add Digits
 
@@ -159,9 +159,9 @@ string getPermutation(int n, int k) {
 
 ## 263 Ugly Number
 
-## 264 Ugly Number II (✨)
+## 264 Ugly Number II (⭐)
 
-这个题用了动态规划，思路真的很精致。
+这个题用了动态规划，思路很精致。
 
 ## 268 Missing Number
 
@@ -203,6 +203,12 @@ def nthSuperUglyNumber(self, n, primes):
 ## 326 Power of Three
 
 这题没有 `#231 Power of Two` 用到的小技巧，只能一个一个除以 3．有一个骚操作是，`int` 范围内最大的 3 的幂是 $3^{19} = 1162261467$，直接判断是不是这个数的因数就可以了．
+
+## 343 Integer Break
+
+动态规划的思路。
+
+这题也可以从数学的角度思考，找出最优方案，一个大于 3 的数恰好拆成 2 和 3 的和，此时乘积最大，具体解释参考[链接](https://leetcode.com/problems/integer-break/discuss/80721/Why-factor-2-or-3-The-math-behind-this-problem.)。
 
 ## 357 Count Numbers with Unique Digits
 
@@ -252,7 +258,11 @@ $$
 
 ## 537 Complex Number Multiplication
 
-整数、浮点数转为字符串，可以用 `std::to_string()` 或 `stringstream`．反过来，字符串转为整数、浮点数，可以用 `stringstream`，C++ 中 `std::stoi()` 系列的函数，C 中 `atoi()` 系列的函数，还有 `sscanf`．
+字符串数学计算类型的问题。整数、浮点数转为字符串，可以用 `std::to_string()` 或 `stringstream`．反过来，字符串转为整数、浮点数，可以用 `stringstream`，C++ 中 `std::stoi()` 系列的函数，C 中 `atoi()` 系列的函数，还有 `sscanf`．
+
+## 553 Optimal Division
+
+这道题出得好蠢啊。
 
 ## 593 Valid Square
 
@@ -264,10 +274,14 @@ $$
 
 ## 640 Solve the Equation
 
-这种跟表达式求解有关的题做起来真蛋疼。
+字符串数学计算类型的问题，做起来真蛋疼。
 
 ## 645 Set Mismatch
 
 利用数组下标做标记。
 
 ## 670 Maximum Swap
+
+## 672 Bulb Switcher II
+
+把所有可能的情况穷举即可。
