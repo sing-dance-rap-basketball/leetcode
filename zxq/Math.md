@@ -285,3 +285,61 @@ $$
 ## 672 Bulb Switcher II
 
 把所有可能的情况穷举即可。
+
+## 728 Self Dividing Numbers
+
+## 754 Reach a Number
+
+题目内容有点意思，算是一个数学小问题，思路跟[官方解答](https://leetcode.com/problems/reach-a-number/solution/)一样。
+
+## 790 Domino and Tromino Tiling (✨)
+
+递推。用动态规划的思路，不妨设 $a_0 = 1$，初始条件是 $a_1 = 1$ 和 $a_2 = 2$，考虑一般的 $a_n (n \geq 3)$，由三部分组成：
+
+- 对于宽为 $n-1$ 的情形，右边再放一个竖条，这部分数量是 $a_{n-1}$；
+- 对于宽为 $n-2$ 的情形，右边再放两个横条（即一个 $2\times 2$），这部分数量是 $a_{n-2}$；
+- 对于宽为 $0$ 到 $n-3$ 的情形，右边相应地要再放宽为 $n$ 到 $3$ 的一条，每种情形有两种方式（这里指的是不能拆分成更小宽度的方式），这部分数量是 $2 \times \sum_{0}^{n-3} a_i$；
+
+综上，
+
+$$
+\begin{align}
+a_n &= a_{n-1} + a_{n-2} + 2 \times \sum_{0}^{n-3} a_i \\
+    &= a_{n-1} + a_{n-3} + (a_{n-2} + a_{n-3} + 2 \times \sum_{0}^{n-4} a_i) \\
+    &= a_{n-1} + a_{n-3} + a_{n-1} \\
+    &= 2 \times a_{n-1} + a_{n-3}
+\end{align}
+$$
+
+## 796 Rotate String
+
+有趣的简单题，我用了最笨的方法，更好的思路是把 `A` 和 `A` 拼接起来，判断 `B` 是否是其子串，[官方解答](https://leetcode.com/problems/rotate-string/solution/)在此基础上给了好几种方法，没有细看。
+
+## 798 Smallest Rotation with Highest Score (✨)
+
+这题很有趣，最开始写的最笨的 `O(N^2)` 的方法果然超时；然后写了一个更好的 `O(N^2)` 的方法，对每一个元素统计能使它得分的转动量 `K`，更快了一些，但还是会超时，稍稍优化一下，勉勉强强 ac 了；后来看了 discussion 里面好多个讨论，看懂了[这位网友的解释](https://leetcode.com/problems/smallest-rotation-with-highest-score/discuss/118725/C%2B%2BJavaPython-Solution-with-Explanation)，非常感谢他。
+
+这题的关键就是，对于每一个元素，能使他得分（或者失分）的转动量 `K` 构成了一个区间（也可能是两个），如何以 `O(N)` 的时间复杂度，找到所有区间中出现次数最多的 `index`。对于区间 `[a,b]`，可以写成 `[a,b+1)`，假设这是一个得分区间，然后维护一个数组，数组第 `a` 项加 1，数组第 `b+1` 项减 1，然后从头到尾累加，就可以得到每项的正确的分数。这个思路很巧妙，学习了。
+
+## 830 Positions of Large Groups
+
+## 856 Score of Parentheses
+
+我用了栈的思路和递归的写法。[这个解答](https://leetcode.com/problems/score-of-parentheses/discuss/141777/C%2B%2BJavaPython-O(1)-Space)很巧妙，想不到，代码如下：
+
+```C++
+int scoreOfParentheses(string S) {
+    stack<int> stack;
+    int cur = 0;
+    for (char i : S)
+        if (i == '(') {
+            stack.push(cur);
+            cur = 0;
+        }
+        else {
+            cur += stack.top() + max(cur, 1);
+            stack.pop();
+        }
+    return cur;
+}
+```
