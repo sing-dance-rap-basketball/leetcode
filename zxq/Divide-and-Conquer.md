@@ -52,3 +52,50 @@ int findKthLargest(vector<int>& nums, int k) {
     return l;
 }
 ```
+
+## 240 Search a 2D Matrix II
+**Description**
+
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+- Integers in each row are sorted in ascending from left to right.
+- Integers in each column are sorted in ascending from top to bottom.
+
+**Solution**
+
+```cpp
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    auto& m = matrix;
+    if (m.empty() || m[0].empty()) {
+        return false;
+    }
+    
+    int minR = 0, maxR = m.size() - 1;
+    int minC = 0, maxC = m[0].size() - 1;
+    while (minR <= maxR && minC <= maxC) {
+        int rt = m[minR][maxC]; // right top
+        if (rt < target) {
+            ++minR;
+        }
+        else if (rt > target) {
+            --maxC;
+        }
+        else {
+            return true;
+        }
+        
+        int lb = m[maxR][minC]; // left bottom
+        if (lb < target) {
+            ++minC;
+        }
+        else if (lb > target) {
+            --maxR;
+        }
+        else {
+            return true;
+        }
+    }
+    
+    return false;
+}
+```
