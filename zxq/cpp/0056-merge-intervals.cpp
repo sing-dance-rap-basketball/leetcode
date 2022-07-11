@@ -65,27 +65,59 @@
   √ Your runtime beats 76.17 % of cpp submissions
   √ Your memory usage beats 61.7 % of cpp submissions (12.3 MB)
 */
+// class Solution {
+// public:
+//     vector<vector<int>> merge(vector<vector<int>>& intervals) {
+//         vector<vector<int>> res;
+//         if (intervals.empty()) { return res; }
+//         else { 
+//             std::sort(intervals.begin(), intervals.end(), 
+//                         [](vector<int>& v1, vector<int>& v2){ return v1[0]<v2[0]; });
+//             res.push_back(intervals[0]); 
+//         }
+
+//         for (auto& v : intervals) {
+//             if (v[0] <= res.back()[1]) {
+//                 if (v[1] > res.back()[1]) {
+//                     res.back()[1] = v[1];
+//                 }
+//             }
+//             else {
+//                 res.push_back(v);
+//             }
+//         }   
+//         return res;
+//     }
+// };
+
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        vector<vector<int>> res;
-        if (intervals.empty()) { return res; }
-        else { 
-            std::sort(intervals.begin(), intervals.end(), 
-                        [](vector<int>& v1, vector<int>& v2){ return v1[0]<v2[0]; });
-            res.push_back(intervals[0]); 
+    // Accepted
+    // 169/169 cases passed (62 ms)
+    // Your runtime beats 46.2 % of cpp submissions
+    // Your memory usage beats 66.62 % of cpp submissions (19 MB)
+    vector<vector<int>> merge(vector<vector<int>> &intervals) {
+        if (intervals.size() == 1) {
+            return intervals;
         }
-
-        for (auto& v : intervals) {
-            if (v[0] <= res.back()[1]) {
-                if (v[1] > res.back()[1]) {
-                    res.back()[1] = v[1];
+        vector<vector<int>> ans;
+        sort(intervals.begin(), intervals.end());
+        int leftEnd = INT_MIN, rightEnd = INT_MIN;
+        for (auto &interval : intervals) {
+            if (interval[0] > rightEnd) {
+                if (leftEnd > INT_MIN) {
+                    ans.push_back({leftEnd, rightEnd});
                 }
+                leftEnd = interval[0];
+                rightEnd = interval[1];
+            } else {
+                rightEnd = max(rightEnd, interval[1]);
             }
-            else {
-                res.push_back(v);
-            }
-        }   
-        return res;
+        }
+        ans.push_back({leftEnd, rightEnd});
+        return ans;
     }
 };
