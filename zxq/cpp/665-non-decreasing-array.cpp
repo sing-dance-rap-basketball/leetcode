@@ -80,3 +80,48 @@ public:
 //         return true;
 //     }
 // };
+
+// class Solution {
+// public:
+//     // Runtime: 35 ms, faster than 72.00%
+//     // Memory Usage: 27.1 MB, less than 53.03%
+//     bool checkPossibility(vector<int>& nums) {
+//         if (nums.size() < 3) {return true;}
+//         int cnt = 0;
+//         int a = nums[0], b = nums[1];
+//         for (int i = 2; i < nums.size(); ++i) {
+//             int c = nums[i];
+//             if (a <= b) {
+//                 if (b <= c) {
+//                     a = b;
+//                     b = c;
+//                 } else if (b > c) {
+//                     cnt++; 
+//                     if (a <= c) {
+//                         a = a;
+//                         b = c;
+//                     } else if (a > c) {
+//                         a = a;
+//                         b = b;
+//                     }
+//                 }
+//             } else if (a > b) { // 只可能是开头的时候
+//                 if (b > c) {
+//                     return false;
+//                 } else if (b <= c) {
+//                     cnt++;
+//                     if (a <= c) {
+//                         a = a;
+//                         b = c;
+//                     } else if (a > c) {
+//                         a = b;
+//                         b = c;
+//                     }
+//                 }
+//             }
+
+//             if (cnt > 1) {return false;}
+//         }
+//         return true;
+//     }
+// };
